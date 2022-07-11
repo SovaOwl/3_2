@@ -10,35 +10,20 @@ private:
 
 public:
 	int nume = num;
-	string choice;
 
-	void conclusion()
+	int increment()
 	{
-
-		if (choice == "+")
-		{
-			nume++;
-
-		}
-		else if (choice == "-")
-		{
-			nume--;
-
-		}
-		else if (choice == "=")
-		{
-			cout << nume << endl;
-
-		}
-		else if (choice == "x")
-		{
-			cout << "До свидания";
-
-		}
+		return nume++;
 	}
-	
+	int decrement()
+	{
+		return nume--;
+	}
+	int getValue()
+	{
+		return nume;
+	}
 };
-
 
 int main()
 {
@@ -66,9 +51,27 @@ int main()
 	{
 		cout << "Введите команду ('+', '-', '=' или 'x'): ";
 		cin >> selection;
-		coun.choice = selection;
 
-		coun.conclusion();
-
+		if (selection == "+")
+		{
+			coun.increment();
+		}
+		else if (selection == "-")
+		{
+			coun.decrement();
+		}
+		else if (selection == "=")
+		{
+			cout << coun.getValue() << endl;
+		}
+		else if (selection == "x")
+		{
+			cout << "До свидания" << endl;
+		}
+		else
+		{
+			cout << "Не известная команда" << endl;
+		}
 	} while (selection != "x");
+
 }
