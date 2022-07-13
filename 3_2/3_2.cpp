@@ -9,19 +9,23 @@ private:
 	int num = -999;
 
 public:
-	int nume = num;
 
 	int increment()
 	{
-		return nume++;
+		return num++;
 	}
 	int decrement()
 	{
-		return nume--;
+		return num--;
 	}
 	int getValue()
 	{
-		return nume;
+		return num;
+	}
+
+	Counter(int nume)
+	{
+		this->num = nume;
 	}
 };
 
@@ -29,9 +33,8 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	Counter coun;
+	int nume = -999;
 	string op_ch, selection;
-	int num = -999;
 
 	cout << "Вы хотите указать начальное значение счётчика? Введите yes или no: ";
 	cin >> op_ch;
@@ -39,13 +42,13 @@ int main()
 	if (op_ch == "yes")
 	{
 		cout << "Введите начальное значение счётчика: ";
-		cin >> num;
+		cin >> nume;
 	}
 	else if (op_ch == "no")
 	{
-		num = 1;
+		nume = 1;
 	}
-	coun.nume = num;
+	Counter coun(nume);
 
 	do
 	{
